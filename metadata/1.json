@@ -1,0 +1,37 @@
+{
+  "name": "IT Support Technician",
+  "description": "Technical support specialist for hospitals and pharmacies across France. Provided comprehensive IT support including hardware troubleshooting, software installation, network maintenance, and user training. Worked with medical equipment interfaces and pharmacy management systems, ensuring critical healthcare technology remained operational 24/7.",
+  "image": "https://jade-faithful-platypus-613.mypinata.cloud/ipfs/bafkreielv7j46od3awli4bkyt6uxbobees6bfirraxr3y6cwqqps27eiue",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Period",
+      "value": "2020 - 2022"
+    },
+    {
+      "trait_type": "Company",
+      "value": "Computer Engineering"
+    },
+    {
+      "trait_type": "Location",
+      "value": "La Roche-sur-Foron, France"
+    },
+    {
+      "trait_type": "Daily Reward",
+      "value": "1 PFT"
+    },
+    {
+      "trait_type": "Industry",
+      "value": "Healthcare IT"
+    },
+    {
+      "trait_type": "Skills",
+      "value": "Technical Support, Hardware, Networking"
+    }
+  ],
+  "external_url": "https://portfolio-dapp.com/nft/1",
+  "background_color": "1a1a2e"
+}

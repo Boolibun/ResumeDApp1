@@ -1,0 +1,37 @@
+{
+  "name": "Full-Stack Designer & Developer",
+  "description": "Lead designer and developer for the WeDriive platform - a comprehensive carpooling and ride-sharing solution. Responsible for the complete design system, user interface, and full-stack development. Built a scalable web application with real-time features, geolocation services, payment integration, and user matching algorithms. Delivered a polished product from concept to production deployment.",
+  "image": "https://jade-faithful-platypus-613.mypinata.cloud/ipfs/bafkreihrp6hsmoxpranx7vd6klzy655wb7wqbdbuk236ta4wiqayeo645q",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Period",
+      "value": "March 2025 - October 2025"
+    },
+    {
+      "trait_type": "Company",
+      "value": "WeDriive"
+    },
+    {
+      "trait_type": "Location",
+      "value": "Remote"
+    },
+    {
+      "trait_type": "Daily Reward",
+      "value": "3 PFT"
+    },
+    {
+      "trait_type": "Industry",
+      "value": "Transportation Tech"
+    },
+    {
+      "trait_type": "Skills",
+      "value": "UI/UX Design, React, Node.js, MongoDB"
+    }
+  ],
+  "external_url": "https://portfolio-dapp.com/nft/2",
+  "background_color": "16213e"
+}

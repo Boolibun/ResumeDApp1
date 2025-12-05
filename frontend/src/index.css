@@ -1,0 +1,571 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply text-white min-h-screen;
+    background: transparent;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Matrix Rain Background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(ellipse at center, rgba(0, 80, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 1) 100%),
+      linear-gradient(0deg, 
+        rgba(0, 255, 0, 0.03) 0%, 
+        transparent 50%, 
+        rgba(0, 255, 0, 0.03) 100%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 98px,
+        rgba(0, 255, 0, 0.03) 100px
+      );
+    pointer-events: none;
+    z-index: -3;
+    animation: matrix-pulse 4s ease-in-out infinite;
+  }
+
+  /* Animated Grid */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 120%;
+    background-image: 
+      linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -2;
+    animation: matrix-grid 20s linear infinite;
+  }
+
+  /* Matrix Digital Rain */
+  .matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .matrix-rain::before,
+  .matrix-rain::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(transparent, rgba(0, 255, 0, 0.8), transparent);
+    animation: matrix-fall 3s linear infinite;
+  }
+
+  .matrix-rain::before {
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .matrix-rain::after {
+    left: 30%;
+    animation-delay: 1s;
+  }
+}
+
+/* Matrix Digital Rain Animation */
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px));
+    opacity: 0;
+  }
+}
+
+@keyframes matrix-grid {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes matrix-pulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    background: 
+      linear-gradient(135deg, 
+        rgba(0, 255, 0, 0.1) 0%, 
+        rgba(0, 150, 0, 0.05) 50%, 
+        rgba(0, 255, 0, 0.1) 100%
+      );
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(0, 255, 0, 0.2),
+      0 0 20px rgba(0, 255, 0, 0.1);
+    position: relative;
+  }
+
+  .glassmorphism::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 48%, rgba(0, 255, 0, 0.05) 50%, transparent 52%);
+    animation: matrix-scan 4s linear infinite;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(45deg, 
+      rgba(0, 255, 0, 0.8) 0%, 
+      rgba(0, 200, 0, 0.9) 50%, 
+      rgba(0, 255, 0, 0.8) 100%
+    );
+    color: #000000;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 0, 0.5);
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 
+      0 4px 20px rgba(0, 255, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(45deg, 
+      rgba(0, 255, 0, 1) 0%, 
+      rgba(0, 220, 0, 1) 50%, 
+      rgba(0, 255, 0, 1) 100%
+    );
+    box-shadow: 
+      0 6px 30px rgba(0, 255, 0, 0.4),
+      0 0 40px rgba(0, 255, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: #00ff00;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(0, 255, 0, 0.1);
+    border-color: rgba(0, 255, 0, 0.8);
+    box-shadow: 0 4px 20px rgba(0, 255, 0, 0.2);
+    transform: translateY(-1px);
+  }
+  
+  .card {
+    @apply glassmorphism rounded-xl p-6;
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(0, 255, 0, 0.1);
+  }
+  
+  .nft-card {
+    @apply card hover:scale-105 transform transition-all duration-500 cursor-pointer;
+  }
+
+  .nft-card:hover {
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.6),
+      0 0 50px rgba(0, 255, 0, 0.3);
+    border-color: rgba(0, 255, 0, 0.6);
+  }
+  
+  .rarity-common {
+    border-color: rgba(100, 255, 100, 0.5);
+    box-shadow: 0 0 20px rgba(100, 255, 100, 0.2);
+  }
+  
+  .rarity-rare {
+    border-color: rgba(0, 150, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.2);
+  }
+  
+  .rarity-epic {
+    border-color: rgba(150, 0, 255, 0.5);
+    box-shadow: 0 0 20px rgba(150, 0, 255, 0.2);
+  }
+  
+  .rarity-legendary {
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  }
+
+  /* Enhanced Matrix Effects */
+  .matrix-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .matrix-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 0, 0.03) 2px,
+        rgba(0, 255, 0, 0.03) 4px
+      );
+    pointer-events: none;
+    animation: matrix-lines-vertical 3s linear infinite;
+  }
+
+  .matrix-glow {
+    box-shadow: 
+      0 0 30px rgba(0, 255, 0, 0.4),
+      0 0 60px rgba(0, 255, 0, 0.2),
+      0 0 90px rgba(0, 255, 0, 0.1),
+      inset 0 0 30px rgba(0, 255, 0, 0.1);
+  }
+
+  .tech-border {
+    border: 2px solid transparent;
+    background: 
+      linear-gradient(black, black) padding-box,
+      linear-gradient(45deg, 
+        rgba(0, 255, 0, 0.8), 
+        rgba(0, 200, 0, 0.3), 
+        rgba(0, 255, 0, 0.8)
+      ) border-box;
+    animation: tech-border-glow 2s ease-in-out infinite;
+  }
+
+  /* Matrix Terminal Effect */
+  .matrix-terminal {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(0, 255, 0, 0.5);
+    font-family: 'Courier New', monospace;
+    color: #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  }
+
+  .matrix-terminal::before {
+    content: '> ';
+    color: rgba(0, 255, 0, 0.8);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(45deg, 
+      rgba(0, 255, 0, 1) 0%, 
+      rgba(0, 200, 0, 0.8) 50%, 
+      rgba(0, 255, 0, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-glow 2s ease-in-out infinite;
+  }
+  
+  .text-matrix {
+    background: linear-gradient(45deg, 
+      rgba(0, 255, 0, 1) 0%, 
+      rgba(0, 255, 100, 0.9) 25%,
+      rgba(100, 255, 0, 0.8) 50%, 
+      rgba(0, 255, 100, 0.9) 75%,
+      rgba(0, 255, 0, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: matrix-text-flow 3s linear infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-matrix-flash {
+    animation: matrix-flash 2s ease-in-out infinite;
+  }
+
+  .shadow-green-glow {
+    box-shadow: 
+      0 10px 40px rgba(0, 255, 0, 0.3),
+      0 20px 60px rgba(0, 255, 0, 0.2),
+      0 0 100px rgba(0, 255, 0, 0.1);
+  }
+
+  .shadow-glow {
+    box-shadow: 
+      0 15px 35px rgba(0, 255, 0, 0.2),
+      0 25px 50px rgba(0, 255, 0, 0.1);
+  }
+
+  /* Matrix Text Effects */
+  .matrix-glitch {
+    animation: matrix-glitch 0.3s ease-in-out infinite;
+  }
+}
+
+/* Enhanced Keyframes */
+@keyframes matrix-text-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 5px rgba(0, 255, 0, 0.5));
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(0, 255, 0, 0.8));
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.6);
+  }
+}
+
+@keyframes matrix-flash {
+  0%, 90%, 100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.7;
+    filter: brightness(1.3) hue-rotate(10deg);
+    text-shadow: 0 0 15px rgba(0, 255, 0, 1);
+  }
+}
+
+@keyframes matrix-scan {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+}
+
+@keyframes matrix-lines-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+@keyframes tech-border-glow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes matrix-glitch {
+  0%, 90%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, 
+    rgba(0, 255, 0, 0.6), 
+    rgba(0, 200, 0, 0.8), 
+    rgba(0, 255, 0, 0.6)
+  );
+  border-radius: 6px;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, 
+    rgba(0, 255, 0, 0.8), 
+    rgba(0, 200, 0, 1), 
+    rgba(0, 255, 0, 0.8)
+  );
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Matrix Rain Container */
+.matrix-rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* RainbowKit Button Customization */
+[data-rk] {
+  /* Override RainbowKit default button styles */
+}
+
+
+/* Connect Wallet Button - Matrix Theme */
+button[data-testid="rk-connect-button"] {
+  background: 
+    linear-gradient(135deg, 
+      rgba(0, 255, 0, 0.1) 0%, 
+      rgba(0, 150, 0, 0.05) 50%, 
+      rgba(0, 255, 0, 0.1) 100%
+    ) !important;
+  color: #00ff00 !important;
+  border: 1px solid rgba(0, 255, 0, 0.4) !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  padding: 12px 24px !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(0, 255, 0, 0.2),
+    0 0 20px rgba(0, 255, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+}
+
+button[data-testid="rk-connect-button"]::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(45deg, transparent 48%, rgba(0, 255, 0, 0.05) 50%, transparent 52%) !important;
+  border-radius: 8px !important;
+  animation: matrix-scan 3s linear infinite !important;
+  pointer-events: none !important;
+}
+
+button[data-testid="rk-connect-button"]:hover {
+  background: 
+    linear-gradient(135deg, 
+      rgba(0, 255, 0, 0.15) 0%, 
+      rgba(0, 150, 0, 0.1) 50%, 
+      rgba(0, 255, 0, 0.15) 100%
+    ) !important;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(0, 255, 0, 0.3),
+    0 0 30px rgba(0, 255, 0, 0.2) !important;
+  transform: translateY(-2px) !important;
+  border-color: rgba(0, 255, 0, 0.6) !important;
+}
+

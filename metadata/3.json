@@ -1,0 +1,37 @@
+{
+  "name": "Technical Lead / Blockchain Developer",
+  "description": "Led the development of Magibot, a sophisticated multi-chain bot for secure and anonymous fund transfers across blockchain networks. Architected and implemented complex smart contract systems, cross-chain bridge protocols, and automated trading strategies. Managed security audits, gas optimization, and ensured bulletproof operational security. Built infrastructure handling millions in transaction volume while maintaining privacy and decentralization principles.",
+  "image": "https://jade-faithful-platypus-613.mypinata.cloud/ipfs/bafkreihmogpule43jb6jgc6ncqz2v2mdjcrttysdnvrpj5uqwwubt6vgqa",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Period",
+      "value": "April 2023 - January 2024"
+    },
+    {
+      "trait_type": "Company",
+      "value": "Magibot"
+    },
+    {
+      "trait_type": "Location",
+      "value": "Remote / International"
+    },
+    {
+      "trait_type": "Daily Reward",
+      "value": "5 PFT"
+    },
+    {
+      "trait_type": "Industry",
+      "value": "DeFi / Blockchain"
+    },
+    {
+      "trait_type": "Skills",
+      "value": "Solidity, Multi-chain, Smart Contracts, Security"
+    }
+  ],
+  "external_url": "https://portfolio-dapp.com/nft/3",
+  "background_color": "0f3460"
+}

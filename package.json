@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-dapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "setup": "node scripts/setup-env.js",
+    "deploy": "cd contracts && npm run deploy:sepolia",
+    "update-frontend": "node scripts/update-frontend.js",
+    "dev": "cd frontend && npm run dev",
+    "test": "cd contracts && npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "axios": "^1.13.2",
+    "form-data": "^4.0.5",
+    "pinata-web3": "^0.5.4"
+  }
+}
