@@ -151,7 +151,11 @@ portfolio-dapp/
 │   │   └── hooks/           # Hooks personnalisés
 │   ├── public/
 │   └── package.json
-└── docs/                     # Documentation
+└── cli/                      # Interface ligne de commande
+    ├── commands/             # Commandes CLI
+    ├── utils/               # Utilitaires
+    ├── index.js             # Point d'entrée
+    └── README.md            # Documentation CLI
 ```
 
 ## 🔧 Scripts Disponibles
@@ -171,6 +175,22 @@ npm run build      # Build de production
 npm run preview    # Preview du build
 npm run lint       # Linting ESLint
 ```
+
+### CLI (Command Line Interface)
+```bash
+cd cli
+npm install       # Installation des dépendances
+npm start         # Lancement du CLI interactif
+```
+
+Le CLI permet d'interagir avec les smart contracts directement depuis le terminal :
+- Vérifier les balances (tokens et NFTs)
+- Claim des tokens depuis le faucet
+- Staker/unstaker tokens et NFTs
+- Acheter des NFTs depuis le marketplace
+- Voir les récompenses de staking
+
+Consultez `cli/README.md` pour plus de détails.
 
 ## 🌐 Déploiement Production
 
